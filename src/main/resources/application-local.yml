@@ -12,4 +12,5 @@ spring:
 spring:
   data:
     mongodb:
+      database: test
       uri: mongodb://admin:admin@localhost:27017,localhost:27018,localhost:27019/?replicaSet=replica-set&authSource=admin
