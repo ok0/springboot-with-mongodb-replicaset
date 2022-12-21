@@ -1,23 +1,25 @@
 package kr.co.ok0.api.repository.entity
 
+import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 
 @Document(collection = "restaurants")
-class Restaurants(
+class RestaurantsEntity(
   @Id
   @Field(name = "_id")
-  var id: String,
+  var id: ObjectId,
 
   @Field(name = "borough")
   var borough: String
 ) {
+
   override fun equals(other: Any?): Boolean {
     if (this === other) return true
     if (javaClass != other?.javaClass) return false
 
-    other as Restaurants
+    other as RestaurantsEntity
 
     if (id != other.id) return false
     if (borough != other.borough) return false
@@ -32,6 +34,6 @@ class Restaurants(
   }
 
   override fun toString(): String {
-    return "Restaurants(id='$id', borough='$borough')"
+    return "RestaurantsEntity(id='$id', borough='$borough')"
   }
 }
