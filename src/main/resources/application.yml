@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: local
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  jpa:
+    open-in-view: false
