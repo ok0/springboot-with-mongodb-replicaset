@@ -7,6 +7,7 @@ import kr.co.ok0.api.service.dto.RestaurantsResultS
 import org.bson.types.ObjectId
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class RestaurantsServiceImpl(

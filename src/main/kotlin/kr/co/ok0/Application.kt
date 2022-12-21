@@ -1,10 +1,11 @@
-package kr.co.ok0.api
+package kr.co.ok0
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
 
-@SpringBootApplication
+@SpringBootApplication(exclude = [MongoDataAutoConfiguration::class])
 @ComponentScan("kr.co.ok0")
 class Application
 
