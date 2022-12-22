@@ -25,3 +25,25 @@ data class RestaurantsResultSGrades (
   var grade: String,
   var score: Int?
 )
+
+data class RestaurantsParamS(
+  var address: RestaurantsParamSAddress,
+  var borough: String,
+  var cuisine: String,
+  var grades: List<RestaurantsParamSGrades>? = mutableListOf(),
+  var name: String,
+  var restaurantId: String
+)
+
+data class RestaurantsParamSAddress (
+  var building: String,
+  var coord: List<Double>? = mutableListOf(),
+  var street: String,
+  var zipCode: String
+)
+
+data class RestaurantsParamSGrades (
+  var date: Date,
+  var grade: String,
+  var score: Int?
+)

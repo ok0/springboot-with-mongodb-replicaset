@@ -10,7 +10,7 @@ class RestaurantsGradesNestedObject(
 
   @Field(name = "grade")
   var grade: String,
-  // TODO: 2022/12/22 use enum class 
+  // TODO: 2022/12/22 use enum class
 //  var gradeTest: RestaurantsGradeType,
 
   @Field(name = "score")

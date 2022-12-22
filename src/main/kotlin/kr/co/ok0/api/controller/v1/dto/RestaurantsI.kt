@@ -24,3 +24,24 @@ data class RestaurantsResultIGrades(
   var grade: String,
   var score: Int?
 )
+
+data class RestaurantsParamI (
+  var address: RestaurantsParamIAddress,
+  var borough: String,
+  var cuisine: String,
+  var grades: List<RestaurantsParamIGrades>? = mutableListOf(),
+  var name: String,
+  var restaurantId: String
+)
+data class RestaurantsParamIAddress(
+  var building: String,
+  var coord: List<Double>? = mutableListOf(),
+  var street: String,
+  var zipCode: String
+)
+
+data class RestaurantsParamIGrades(
+  var date: Date,
+  var grade: String,
+  var score: Int?
+)
