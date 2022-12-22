@@ -7,6 +7,8 @@ import kr.co.ok0.api.service.dto.RestaurantsResultS
 import kr.co.ok0.api.service.dto.RestaurantsResultSAddress
 import kr.co.ok0.api.service.dto.RestaurantsResultSGrades
 import org.bson.types.ObjectId
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -16,12 +18,14 @@ class RestaurantsServiceImpl(
   private val restaurantsRepository: RestaurantsRepository
 ): RestaurantsService {
   @Transactional
-  override fun findAll(): List<RestaurantsResultS> = restaurantsRepository.findAll().toS()
+  override fun findAll(pageable: Pageable): Page<RestaurantsResultS>
+    = restaurantsRepository.findAll(pageable).toS()
 
   @Transactional
-  override fun findById(id: ObjectId): RestaurantsResultS? = restaurantsRepository.findByIdOrNull(id)?.toS()
+  override fun findById(id: ObjectId): RestaurantsResultS?
+    = restaurantsRepository.findByIdOrNull(id)?.toS()
 
-  fun List<RestaurantsCollection>.toS() = this.map { it.toS() }
+  fun Page<RestaurantsCollection>.toS() = this.map { it.toS() }
   fun RestaurantsCollection.toS() = RestaurantsResultS(
     _id = this._id,
     address = RestaurantsResultSAddress(

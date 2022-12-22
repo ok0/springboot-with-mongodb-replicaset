@@ -6,6 +6,8 @@ import kr.co.ok0.api.controller.v1.dto.RestaurantsResultIGrades
 import kr.co.ok0.api.service.RestaurantsService
 import kr.co.ok0.api.service.dto.RestaurantsResultS
 import org.bson.types.ObjectId
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageRequest
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -14,14 +16,17 @@ class RestaurantsController(
   private val restaurantsService: RestaurantsService
 ) {
   @GetMapping("")
-  fun getRestaurants() = restaurantsService.findAll().toI()
+  fun getRestaurants(
+    @RequestParam(defaultValue = 0.toString()) pageNo: Int,
+    @RequestParam(defaultValue = 10.toString()) pageSize: Int
+  ) = restaurantsService.findAll(PageRequest.of(pageNo, pageSize)).toI()
 
   @GetMapping("/{id}")
   fun getRestaurantById(
     @PathVariable(name = "id") id: ObjectId
   ) = restaurantsService.findById(id)?.toI()
 
-  fun List<RestaurantsResultS>.toI() = this.map { it.toI() }
+  fun Page<RestaurantsResultS>.toI() = this.map { it.toI() }
   fun RestaurantsResultS.toI() = RestaurantsResultI(
     _id = this._id.toHexString(),
     address = RestaurantsResultIAddress(
