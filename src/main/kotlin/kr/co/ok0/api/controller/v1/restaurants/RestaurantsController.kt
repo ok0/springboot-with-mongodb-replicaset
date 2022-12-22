@@ -20,7 +20,7 @@ class RestaurantsController(
     searchContextI: RestaurantsSearchContextI,
     @RequestParam(defaultValue = 0.toString()) pageNo: Int,
     @RequestParam(defaultValue = 10.toString()) pageSize: Int
-  ) = restaurantsService.findAll(PageRequest.of(pageNo, pageSize)).toI()
+  ) = restaurantsService.findAllBySearchContext(searchContextI.toS(), PageRequest.of(pageNo, pageSize)).toI()
 
   @GetMapping("/{id}")
   fun getRestaurantById(
@@ -32,6 +32,9 @@ class RestaurantsController(
     @RequestBody body: RestaurantsParamI
   ) = restaurantsService.insertOne(body.toS()).toI()
 
+  private fun RestaurantsSearchContextI.toS() = RestaurantsSearchContextS(
+    cuisine = this.cuisine, borough = this.borough, grade = this.grade, name = this.name
+  )
   private fun Page<RestaurantsResultS>.toI() = this.map { it.toI() }
   private fun RestaurantsResultS.toI() = RestaurantsResultI(
     _id = this._id.toHexString(),

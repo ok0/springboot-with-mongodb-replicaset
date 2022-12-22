@@ -4,10 +4,10 @@ import org.bson.types.ObjectId
 import java.util.*
 
 data class RestaurantsSearchContextS(
-  var cuisine: String,
-  var borough: String,
-  var grade: String,
-  var name: String
+  var cuisine: String?,
+  var borough: String?,
+  var grade: String?,
+  var name: String?
 )
 
 data class RestaurantsResultS(
