@@ -1,19 +1,20 @@
 package kr.co.ok0.mongo
 
 import com.mongodb.ReadPreference
+import kr.co.ok0.api.repository.restaunrants.collection.type.RestaurantsGradeType
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
-import org.springframework.data.mongodb.MongoDatabaseFactory
+import org.springframework.data.convert.CustomConversions
 import org.springframework.data.mongodb.MongoTransactionManager
 import org.springframework.data.mongodb.SessionSynchronization
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory
 import org.springframework.data.mongodb.core.convert.DefaultDbRefResolver
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter
+import org.springframework.data.mongodb.core.convert.MongoCustomConversions
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
 
 @Configuration
 class MongoConfiguration {

@@ -1,5 +1,6 @@
 package kr.co.ok0.api.repository.restaunrants.collection
 
+import kr.co.ok0.api.repository.restaunrants.collection.type.RestaurantsGradeType
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
@@ -11,28 +12,22 @@ class RestaurantsCollection(
   @Field(name = "_id")
   var _id: ObjectId,
 
+  @Field(name = "address")
+  var address: RestaurantsAddressNestedObject,
+
   @Field(name = "borough")
-  var borough: String
+  var borough: String,
+
+  @Field(name = "cuisine")
+  var cuisine: String,
+
+  @Field(name = "grades")
+  var grades: MutableList<RestaurantsGradesNestedObject>? = mutableListOf(),
+
+  @Field(name = "name")
+  var name: String,
+
+  @Field(name = "restaurant_id")
+  var restaurantId: String
 ) {
-  override fun equals(other: Any?): Boolean {
-    if (this === other) return true
-    if (javaClass != other?.javaClass) return false
-
-    other as RestaurantsCollection
-
-    if (_id != other._id) return false
-    if (borough != other.borough) return false
-
-    return true
-  }
-
-  override fun hashCode(): Int {
-    var result = _id.hashCode()
-    result = 31 * result + borough.hashCode()
-    return result
-  }
-
-  override fun toString(): String {
-    return "RestaurantsEntity(_id=$_id, borough='$borough')"
-  }
 }
