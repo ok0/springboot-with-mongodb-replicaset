@@ -1,8 +1,8 @@
 package kr.co.ok0.api.repository.restaunrants
 
-import kr.co.ok0.api.repository.restaunrants.entity.RestaurantsEntity
+import kr.co.ok0.api.repository.restaunrants.collection.RestaurantsCollection
 import org.bson.types.ObjectId
 import org.springframework.data.mongodb.repository.MongoRepository
 
-interface RestaurantsRepository: MongoRepository<RestaurantsEntity, ObjectId> {
+interface RestaurantsRepository: MongoRepository<RestaurantsCollection, ObjectId> {
 }
