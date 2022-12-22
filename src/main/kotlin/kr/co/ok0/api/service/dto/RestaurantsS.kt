@@ -3,6 +3,13 @@ package kr.co.ok0.api.service.dto
 import org.bson.types.ObjectId
 import java.util.*
 
+data class RestaurantsSearchContextS(
+  var cuisine: String?,
+  var borough: String?,
+  var grade: String?,
+  var name: String?
+)
+
 data class RestaurantsResultS(
   var _id: ObjectId,
   var address: RestaurantsResultSAddress,
