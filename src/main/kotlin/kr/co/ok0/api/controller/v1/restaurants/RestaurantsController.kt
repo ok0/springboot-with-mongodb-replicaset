@@ -8,6 +8,7 @@ import kr.co.ok0.api.service.dto.*
 import org.bson.types.ObjectId
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -24,8 +25,9 @@ class RestaurantsController(
 
   @GetMapping("/{id}")
   fun getRestaurantById(
-    @PathVariable(name = "id") id: ObjectId
-  ) = restaurantsService.findById(id)?.toI()
+    @PathVariable(name = "id") id: String
+  ) = restaurantsService.findById(ObjectId(id))?.toI()
+    ?: ResponseEntity.notFound()
 
   @PostMapping("")
   fun postRestaurant(

@@ -55,7 +55,6 @@ class RestaurantsServiceImpl(
   )
 
   private fun RestaurantsParamS.toCollection() = RestaurantsCollection(
-    _id = ObjectId(),
     address = RestaurantsAddressNestedObject(
       building = this.address.building,
       coord = this.address.coord as MutableList<Double>,
