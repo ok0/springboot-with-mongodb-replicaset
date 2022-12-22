@@ -1,7 +1,6 @@
 package kr.co.ok0.api.controller.v1.restaurants
 
 import kr.co.ok0.api.controller.v1.dto.RestaurantsResultI
-import kr.co.ok0.api.repository.RestaurantsRepository
 import kr.co.ok0.api.service.RestaurantsService
 import kr.co.ok0.api.service.dto.RestaurantsResultS
 import org.bson.types.ObjectId
@@ -22,7 +21,7 @@ class RestaurantsController(
 
   fun List<RestaurantsResultS>.toI() = this.map { it.toI() }
   fun RestaurantsResultS.toI() = RestaurantsResultI(
-    id = this.id.toHexString(),
+    _id = this._id.toHexString(),
     borough = this.borough
   )
 }

@@ -1,4 +1,4 @@
-package kr.co.ok0.api.repository.entity
+package kr.co.ok0.api.repository.restaunrants.entity
 
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Field
 class RestaurantsEntity(
   @Id
   @Field(name = "_id")
-  var id: ObjectId,
+  var _id: ObjectId,
 
   @Field(name = "borough")
   var borough: String
@@ -21,19 +21,19 @@ class RestaurantsEntity(
 
     other as RestaurantsEntity
 
-    if (id != other.id) return false
+    if (_id != other._id) return false
     if (borough != other.borough) return false
 
     return true
   }
 
   override fun hashCode(): Int {
-    var result = id.hashCode()
+    var result = _id.hashCode()
     result = 31 * result + borough.hashCode()
     return result
   }
 
   override fun toString(): String {
-    return "RestaurantsEntity(id='$id', borough='$borough')"
+    return "RestaurantsEntity(_id=$_id, borough='$borough')"
   }
 }

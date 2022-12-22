@@ -1,6 +1,6 @@
-package kr.co.ok0.api.repository
+package kr.co.ok0.api.repository.restaunrants
 
-import kr.co.ok0.api.repository.entity.RestaurantsEntity
+import kr.co.ok0.api.repository.restaunrants.entity.RestaurantsEntity
 import org.bson.types.ObjectId
 import org.springframework.data.mongodb.repository.MongoRepository
 

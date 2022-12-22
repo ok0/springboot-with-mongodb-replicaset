@@ -9,8 +9,7 @@ logging:
             core:
               MongoTemplate: DEBUG
 ---
-spring:
-  data:
-    mongodb:
-      database: test
-      uri: mongodb://admin:admin@localhost:27017,localhost:27018,localhost:27019/?replicaSet=replica-set&authSource=admin&readPreference=secondaryPreferred&heartbeatFrequencyMS=300000
+data:
+  mongo:
+    restaurants:
+      uri: mongodb://admin:admin@localhost:27018,localhost:27019/test?replicaSet=replica-set&authSource=admin&readPreference=secondaryPreferred&heartbeatFrequencyMS=300000
