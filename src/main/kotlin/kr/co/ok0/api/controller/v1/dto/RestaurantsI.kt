@@ -2,6 +2,13 @@ package kr.co.ok0.api.controller.v1.dto
 
 import java.util.*
 
+data class RestaurantsSearchContextI(
+  var cuisine: String,
+  var borough: String,
+  var grade: String,
+  var name: String
+)
+
 data class RestaurantsResultI (
   var _id: String,
   var address: RestaurantsResultIAddress,

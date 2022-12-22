@@ -32,8 +32,8 @@ class RestaurantsServiceImpl(
   override fun insertOne(paramS: RestaurantsParamS): RestaurantsResultS
     = restaurantsRepository.save(paramS.toCollection()).toS()
 
-  fun Page<RestaurantsCollection>.toS() = this.map { it.toS() }
-  fun RestaurantsCollection.toS() = RestaurantsResultS(
+  private fun Page<RestaurantsCollection>.toS() = this.map { it.toS() }
+  private fun RestaurantsCollection.toS() = RestaurantsResultS(
     _id = this._id,
     address = RestaurantsResultSAddress(
       building = this.address.building,
@@ -53,7 +53,7 @@ class RestaurantsServiceImpl(
     restaurantId = this.restaurantId
   )
 
-  fun RestaurantsParamS.toCollection() = RestaurantsCollection(
+  private fun RestaurantsParamS.toCollection() = RestaurantsCollection(
     _id = ObjectId(),
     address = RestaurantsAddressNestedObject(
       building = this.address.building,
