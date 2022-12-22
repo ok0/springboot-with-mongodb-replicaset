@@ -22,7 +22,7 @@ class RestaurantsCollection(
   var cuisine: String,
 
   @Field(name = "grades")
-  var grades: MutableList<RestaurantsGradesNestedObject>? = mutableListOf(),
+  var grades: List<RestaurantsGradesNestedObject>? = mutableListOf(),
 
   @Field(name = "name")
   var name: String,
